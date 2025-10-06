@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1lofagvf0jhl"]
+
+[ext_resource type="Script" uid="uid://dyytuwr0137sr" path="res://scripts/options.gd" id="1_c2u1v"]
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c2u1v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 721.0
+offset_bottom = 253.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "                                                                          Como jogar"
+
+[node name="JumpLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pular: Espaço"
+
+[node name="CrouchLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Agachar: Seta ↓"
+
+[node name="InstructionsLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "==> A cada 5000m, o jogo aumenta a velocidade.
+==> Escudo te protege de obstáculos por 2000m.
+==> Magnetismo faz você pegar mais moedas por 2000m."
+
+[node name="BackButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Voltar"

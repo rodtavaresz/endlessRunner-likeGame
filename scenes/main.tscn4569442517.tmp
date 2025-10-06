@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dntlns54dsjm3"]
+
+[ext_resource type="Script" uid="uid://d330x8400jwbv" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://u2tqeuhhfng4" path="res://scenes/node_2d.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bn8pjls77lslj" path="res://static_body_2d.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://baex8v2wavy4r" path="res://character_body_2d.tscn" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://djyhn2l0ukjl5" path="res://obstacle_spawner.gd" id="5_lquwl"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_h2yge")]
+
+[node name="Ground" parent="." instance=ExtResource("2_1bvp3")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_lquwl")]
+position = Vector2(96, 120)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(270, -4)
+offset = Vector2(120, -240)
+process_callback = 0
+position_smoothing_speed = 50.0
+
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+script = ExtResource("5_lquwl")
+player_path = NodePath("../CharacterBody2D")
+
+[node name="GroundY" type="Marker2D" parent="ObstacleSpawner"]

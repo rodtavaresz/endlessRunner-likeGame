@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6i4e1yuxcaop"]
+
+[ext_resource type="Script" uid="uid://d0h7gbg7o82hb" path="res://scripts/magnet.gd" id="1_yp8jf"]
+[ext_resource type="Texture2D" uid="uid://wi0xaym7l6lq" path="res://assets/obstacles/magnet-removebg-preview.png" id="2_oylys"]
+
+[node name="magnet" type="Area2D"]
+script = ExtResource("1_yp8jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.116667, 0.14791)
+texture = ExtResource("2_oylys")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-9.53674e-07, 8)
+scale = Vector2(0.114389, 0.101051)
+polygon = PackedVector2Array(271.005, -39.584, 218.553, -69.272, 84.1428, 77.0839, 42.0714, 135.815, 19.1234, 223.91, 26.2263, 277.088, 78.679, 336.464, 139.874, 326.568, 358.427, 138.544, 314.716, 69.272)

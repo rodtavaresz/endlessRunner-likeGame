@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bst0odd6g3n7h"]
+
+[ext_resource type="Texture2D" uid="uid://dyasm1fruq87r" path="res://assets/obstacles/Bird.png" id="1_g5k2s"]
+[ext_resource type="Script" uid="uid://devnrv127hi5j" path="res://scripts/obastcle_props.gd" id="2_crnqq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crnqq"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j88tq"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cchwj"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ljjq"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axl6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crnqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cchwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ljjq")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr30m"]
+size = Vector2(18.5, 25.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2o5yp"]
+radius = 20.0
+height = 44.0
+
+[node name="Bird" type="StaticBody2D" groups=["obstacle"]]
+collision_mask = 0
+script = ExtResource("2_crnqq")
+spawn_y_offset = -60
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_axl6x")
+animation = &"flying"
+autoplay = "flying"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 33.25)
+shape = SubResource("RectangleShape2D_yr30m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(40, 32)
+shape = SubResource("CapsuleShape2D_2o5yp")

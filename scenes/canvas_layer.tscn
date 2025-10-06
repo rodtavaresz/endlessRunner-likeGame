@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvsaifrwwn37k"]
+
+[ext_resource type="Script" uid="uid://bavmnotu14pfk" path="res://scripts/canvas_layer.gd" id="1_c4rma"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_c4rma")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 722.0
+offset_bottom = 257.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="StartPanel" type="PanelContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/StartPanel"]
+layout_mode = 2
+text = "aperte espaço para começar"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_left = 625.0
+offset_top = -2.0
+offset_right = 722.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="CoinsLabel" type="Label" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+offset_top = -20.0
+offset_right = 126.0
+offset_bottom = 43.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+
+[node name="HighLabel" type="Label" parent="MarginContainer3/HBoxContainer2"]
+layout_mode = 2
+text = "
+"
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+offset_left = 338.0
+offset_top = -20.0
+offset_right = 480.0
+offset_bottom = 43.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer4"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer4/HBoxContainer3"]
+layout_mode = 2
+text = "
+"

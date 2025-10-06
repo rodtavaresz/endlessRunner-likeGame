@@ -1,0 +1,62 @@
+[gd_scene load_steps=14 format=3 uid="uid://dntlns54dsjm3"]
+
+[ext_resource type="Script" uid="uid://d330x8400jwbv" path="res://scripts/main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://u2tqeuhhfng4" path="res://scenes/node_2d.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bn8pjls77lslj" path="res://scenes/static_body_2d.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://baex8v2wavy4r" path="res://scenes/character_body_2d.tscn" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://djyhn2l0ukjl5" path="res://scripts/obstacle_spawner.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cwa6nhvyv4qo2" path="res://scenes/barrel.tscn" id="6_kek77"]
+[ext_resource type="PackedScene" uid="uid://bst0odd6g3n7h" path="res://scenes/bird.tscn" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dod4bmprmea23" path="res://scenes/rock.tscn" id="8_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bxxidvbha57eu" path="res://scenes/stump.tscn" id="9_dg77c"]
+[ext_resource type="PackedScene" uid="uid://bg6515mm08m12" path="res://scenes/coin.tscn" id="10_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dvsaifrwwn37k" path="res://scenes/canvas_layer.tscn" id="11_eb6dy"]
+[ext_resource type="Script" uid="uid://dfv4hdtjgtuap" path="res://scenes/camera_2d.gd" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://kxfmr1713nsk" path="res://scenes/coin_spawner.gd" id="13_trceg"]
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_1bvp3")
+player_path = NodePath("CharacterBody2D")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_h2yge")]
+
+[node name="Ground" parent="." instance=ExtResource("2_1bvp3")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_lquwl")]
+position = Vector2(90, 131)
+
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+script = ExtResource("5_lquwl")
+player_path = NodePath("../CharacterBody2D")
+floor_tilemap_path = null
+obstacles = Array[PackedScene]([ExtResource("8_efxa6"), ExtResource("7_4c57u"), ExtResource("6_kek77"), ExtResource("9_dg77c")])
+spawn_ahead_px = null
+min_gap_px = null
+rand_gap_px = null
+max_on_screen = null
+y_offset = null
+spawn_chance = null
+
+[node name="GroundY" type="Marker2D" parent="ObstacleSpawner"]
+
+[node name="Coin" parent="." instance=ExtResource("10_ya4ey")]
+position = Vector2(487, 88)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_eb6dy")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 127)
+offset = Vector2(120, -240)
+process_callback = 0
+position_smoothing_speed = 50.0
+script = ExtResource("12_eb6dy")
+target_path = NodePath("../CharacterBody2D")
+
+[node name="CoinSpawner" type="Node2D" parent="."]
+script = ExtResource("13_trceg")
+player_path = NodePath("../CharacterBody2D")
+coins = Array[PackedScene]([ExtResource("10_ya4ey")])
+fixed_height_px = 70
+min_gap_px = 800
+y_offset = -6

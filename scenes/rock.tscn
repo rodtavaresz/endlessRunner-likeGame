@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dod4bmprmea23"]
+
+[ext_resource type="Texture2D" uid="uid://dkw6thaio0hfe" path="res://assets/obstacles/rock.png" id="1_o0qsl"]
+[ext_resource type="Script" uid="uid://devnrv127hi5j" path="res://scripts/obastcle_props.gd" id="2_68h2w"]
+
+[node name="Rock" type="StaticBody2D" groups=["obstacle"]]
+collision_mask = 0
+script = ExtResource("2_68h2w")
+spawn_y_offset = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_o0qsl")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(20, 18)
+polygon = PackedVector2Array(-2, -16, -18, 4, -21, 42, 89, 41, 78, 23, 73, 16, 60, 3, 45, -7, 25, -20)
